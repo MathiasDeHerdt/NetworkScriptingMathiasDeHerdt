@@ -1,5 +1,7 @@
-﻿install-windowsfeature AD-Doman-Services -IncludedManagemantTools
+﻿# install-windowsfeature AD-Doman-Services -IncludedManagemantTools
 
 
 
-test
+# Install-ADDSDomainController
+
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
