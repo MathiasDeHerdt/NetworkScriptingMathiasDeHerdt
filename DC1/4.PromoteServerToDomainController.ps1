@@ -1,7 +1,5 @@
-﻿# install-windowsfeature AD-Doman-Services -IncludedManagemantTools
+﻿Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
+$Domain = "intranet.mijnschool.be"
 
-
-# Install-ADDSDomainController
-
-Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
+Install-ADDSForest -DomainName $Domain
