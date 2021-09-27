@@ -1,0 +1,1 @@
+﻿Rename-Computer -NewName "DC-1" -DomainCredential administrator -Restart
