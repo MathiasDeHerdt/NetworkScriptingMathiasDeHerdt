@@ -35,7 +35,6 @@ foreach ($ou in $ADou)
     $path = $ou.Path
     $desc = $ou.Description
     $display = $ou.DisplayName
-    $AccidentalDel = 0
 
     #Account will be created in the OU provided by the $OU variable read from the CSV file
     New-ADOrganizationalUnit `
@@ -43,6 +42,5 @@ foreach ($ou in $ADou)
     -path $path `
     -Description $desc `
     -DisplayName $display`
-    -ProtectedFromAccidentalDeletion $AccidentalDel `
 }
 

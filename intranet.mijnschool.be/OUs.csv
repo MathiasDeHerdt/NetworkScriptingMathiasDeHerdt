@@ -1,12 +1,12 @@
-Path;Name;DisplayName;Description
-DC=intranet;DC=mijnschool;DC=be;Mijn school;Mijn school;Mijn school
-OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;Secretariaat;Secretariaat;Secretariaat
-OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;Directie;Directie;Directie
-OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;Leerkrachten;Leerkrachten;Leerkrachten
-OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;Leerlingen;Leerlingen;Leerlingen
-OU=Leerlingen;OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;1ste leerjaar;1ste leerjaar;1ste leerjaar
-OU=Leerlingen;OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;2de leerjaar;2de leerjaar;2de leerjaar
-OU=Leerlingen;OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;3de leerjaar;3de leerjaar;3de leerjaar
-OU=Leerlingen;OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;4de leerjaar;4de leerjaar;4de leerjaar
-OU=Leerlingen;OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;5de leerjaar;5de leerjaar;5de leerjaar
-OU=Leerlingen;OU=Mijn school;DC=intranet;DC=mijnschool;DC=be;6de leerjaar;6de leerjaar;6de leerjaar
+Path;Display Name;Name;Description
+DC=intranet,DC=mijnschool,DC=be;Mijn school;Mijn school;Mijn school
+OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;Secretariaat;Secretariaat;Secretariaat
+OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;Directie;Directie;Directie
+OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;Leerkrachten;Leerkrachten;Leerkrachten
+OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;Leerlingen;Leerlingen;Leerlingen
+OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;1ste leerjaar;1ste leerjaar;1ste leerjaar
+OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;2de leerjaar;2de leerjaar;2de leerjaar
+OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;3de leerjaar;3de leerjaar;3de leerjaar
+OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;4de leerjaar;4de leerjaar;4de leerjaar
+OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;5de leerjaar;5de leerjaar;5de leerjaar
+OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be;6de leerjaar;6de leerjaar;6de leerjaar
