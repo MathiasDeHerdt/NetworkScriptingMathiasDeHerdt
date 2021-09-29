@@ -1,0 +1,12 @@
+Path;Name;DisplayName;Description;GroupCategory;GroupScope;
+OU=Mijn School,DC=tdc3,DC=local;personeel;personeel;personeel;Security;DomainLocal
+OU=Secretariaat,OU=Mijn School,DC=tdc3,DC=local;secretariaat;secretariaat;secretariaat;Security;Global
+OU=Directie,OU=Mijn School,DC=tdc3,DC=local;directie;directie;directie;Security;Global
+OU=Leerkrachten,OU=Mijn School,DC=tdc3,DC=local;leerkrachten;leerkrachten;leerkrachten;Security;Global
+OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;leerlingen;leerlingen;leerlingen;Security;DomainLocal
+OU=1ste leerjaar,OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;1ste leerjaar;1ste leerjaar;1ste leerjaar;Security;Global
+OU=2de leerjaar,OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;2de leerjaar;2de leerjaar;2de leerjaar;Security;Global
+OU=3de leerjaar,OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;3de leerjaar;3de leerjaar;3de leerjaar;Security;Global
+OU=4de leerjaar,OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;4de leerjaar;4de leerjaar;4de leerjaar;Security;Global
+OU=5de leerjaar,OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;5de leerjaar;5de leerjaar;5de leerjaar;Security;Global
+OU=6de leerjaar,OU=Leerlingen,OU=Mijn School,DC=tdc3,DC=local;6de leerjaar;6de leerjaar;6de leerjaar;Security;Global

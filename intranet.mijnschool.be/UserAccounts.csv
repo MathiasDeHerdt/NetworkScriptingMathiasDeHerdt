@@ -1,0 +1,21 @@
+Name;SamAccountName;GivenName;Surname;DisplayName;AccountPassword;HomeDrive;HomeDirectory;ScriptPath;Path
+Rozemieke;Rozemieke;Rozemieke;;Rozemieke;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Secretariaat,OU=Mijn school,DC=tdc3,DC=local
+Annemieke;Annemieke;Annemieke;;Annemieke;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Secretariaat,OU=Mijn school,DC=tdc3,DC=local
+ProfessorGobelijn;ProfessorGobelijn;Professor;Gobelijn;Professor Gobelijn;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Directie,OU=Mijn school,DC=tdc3,DC=local
+ProfessorZonnebloem;ProfessorZonnebloem;Professor;Zonnebloem;Professor Zonnebloem;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Leerkrachten,OU=Mijn school,DC=tdc3,DC=local
+GroteSmurf;GroteSmurf;Grote;Smurf;Grote Smurf;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Leerkrachten,OU=Mijn school,DC=tdc3,DC=local
+Jommeke;Jommeke;Jommeke;;Jommeke;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Leerkrachten,OU=Mijn school,DC=tdc3,DC=local
+Filiberke;Filiberke;Filiberke;;Filiberke;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=Leerkrachten,OU=Mijn school,DC=tdc3,DC=local
+Suske;Suske;Suske;;Suske;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=1ste leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Wiske;Wiske;Wiske;;Wiske;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=1ste leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Asterix;Asterix;Asterix;;Asterix;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Obelix;Obelix;Obelix;;Obelix;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Ideefix;Ideefix;Ideefix;;Ideefix;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+PietPienter;PietPienter;Piet Pienter;;Piet Pienter;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=3de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+BertBibber;BertBibber;Bert Bibber;;Bert Bibber;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=3de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Garfied;Garfied;Garfied;;Garfied;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=4de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Jon;Jon;Jon;;Jon;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=4de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Nero;Nero;Nero;;Nero;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=5de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Petoetje;Petoetje;Petoetje;;Petoetje;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=5de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+Kuifje;Kuifje;Kuifje;;Kuifje;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=6de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
+KapiteinHaddock;KapiteinHaddock;Haddock;Haddock;Kapitein Haddock;P@ssw0rd;H:;\\ms\homedirs\%username%;login.bat;OU=6de leerjaar,OU=Leerlingen,OU=Mijn school,DC=tdc3,DC=local
