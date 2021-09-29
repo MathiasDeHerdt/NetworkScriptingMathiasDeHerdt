@@ -24,7 +24,7 @@ if ($TestedPath -like "False"){
 }
 
 # Store the data from the CSV in the $ADOU variable. 
-$ADOU = Import-csv $csvFile
+$ADOU = Import-csv $csvFile -Delimiter ";"
 
 # Loop through each row containing user details in the CSV file
 foreach ($ou in $ADou)
