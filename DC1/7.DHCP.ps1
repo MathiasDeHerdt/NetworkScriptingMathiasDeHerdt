@@ -6,4 +6,14 @@ Set-DhcpServerV4OptionValue -DnsServer 192.168.1.2 -Router 192.168.1.3
 
 Set-DhcpServerv4Scope -ScopeId 192.168.1.1 -LeaseDuration 1.00:00:00
 
+# Create DHCP reservation
+
+$HashArgs = @{
+    'ScopeId' = '192.168.1.0';
+    'ClientId' = 'b8-e9-37-3e-55-86';
+    'Name' = 'School Printer';
+}
+
+Add-DhcpServerv4Reservation @HashArgs
+
 Restart-service dhcpserver
