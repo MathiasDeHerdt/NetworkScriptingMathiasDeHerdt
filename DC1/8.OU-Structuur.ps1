@@ -11,7 +11,7 @@
 Import-Module activedirectory
 
 #Store the data from the CSV in the $ADOU variable. 
-$ADOU = Import-csv C:\Mathias\GitHubRepoV2\NetworkScriptingMathiasDeHerdt
+$ADOU = Import-csv C:\Mathias\GitHubRepoV2\NetworkScriptingMathiasDeHerdt\intranet.mijnschool.be
 
 #Loop through each row containing user details in the CSV file
 foreach ($ou in $ADou)
