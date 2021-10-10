@@ -17,7 +17,6 @@ $Groups = Import-csv $csvFile -Delimiter ";"
 foreach ($Group in $Groups)
 {
     # Read data from each field in each row and assign the data to a variable as below
-    Path;Name;DisplayName;Description;GroupCategory;GroupScope;
     $path = $Group.Path
     $name = $Group.Name
     $display_name = $Group.DisplayName
