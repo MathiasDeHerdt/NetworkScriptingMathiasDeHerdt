@@ -3,7 +3,7 @@
 $IP = "192.168.1.4"
 $MaskBits = 24 # This means subnet mask = 255.255.255.0
 $Gateway = "192.168.1.1"
-$Dns = "192.168.1.1"
+$Dns = "192.168.1.2"
 $IPType = "IPv4"
 
 # Retrieve the network adapter that you want to configure
