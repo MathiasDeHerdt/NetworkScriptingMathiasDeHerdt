@@ -1,21 +1,21 @@
 Name;SamAccountName;GivenName;Surname;DisplayName;AccountPassword;HomeDrive;HomeDirectory;ScriptPath;Path
-Rozemieke;Rozemieke;Rozemieke;Rozemieke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Secretariaat,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Annemieke;Annemieke;Annemieke;Annemieke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Secretariaat,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-ProfessorGobelijn;ProfessorGobelijn;Professor;Gobelijn;Professor Gobelijn;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Directie,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-ProfessorZonnebloem;ProfessorZonnebloem;Professor;Zonnebloem;Professor Zonnebloem;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-GroteSmurf;GroteSmurf;Grote;Smurf;Grote Smurf;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Jommeke;Jommeke;Jommeke;Jommeke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Filiberke;Filiberke;Filiberke;Filiberke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Suske;Suske;Suske;Suske;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=1ste leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Wiske;Wiske;Wiske;Wiske;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=1ste leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Asterix;Asterix;Asterix;Asterix;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Obelix;Obelix;Obelix;Obelix;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Ideefix;Ideefix;Ideefix;Ideefix;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-PietPienter;PietPienter;Piet Pienter;Piet Pienter;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=3de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-BertBibber;BertBibber;Bert Bibber;Bert Bibber;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=3de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Garfied;Garfied;Garfied;Garfied;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=4de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Jon;Jon;Jon;Jon;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=4de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Nero;Nero;Nero;Nero;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=5de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Petoetje;Petoetje;Petoetje;Petoetje;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=5de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-Kuifje;Kuifje;Kuifje;Kuifje;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=6de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
-KapiteinHaddock;KapiteinHaddock;Haddock;Haddock;Kapitein Haddock;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=6de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Rozemieke;Rozemieke;Rozemieke;Rozemieke;Rozemieke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Secretariaat,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Annemieke;Annemieke;Annemieke;Annemieke;Annemieke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Secretariaat,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+ProfessorGobelijn;ProfessorGobelijn;Professor;Gobelijn;Gobelijn;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Directie,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+ProfessorZonnebloem;ProfessorZonnebloem;Professor;Zonnebloem;Zonnebloem;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+GroteSmurf;GroteSmurf;Grote;Smurf;Smurf;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Jommeke;Jommeke;Jommeke;Jommeke;Jommeke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Filiberke;Filiberke;Filiberke;Filiberke;Filiberke;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=Leerkrachten,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Suske;Suske;Suske;Suske;Suske;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=1ste leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Wiske;Wiske;Wiske;Wiske;Wiske;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=1ste leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Asterix;Asterix;Asterix;Asterix;Asterix;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Obelix;Obelix;Obelix;Obelix;Obelix;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Ideefix;Ideefix;Ideefix;Ideefix;Ideefix;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=2de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+PietPienter;PietPienter;Piet Pienter;Piet Pienter;Piet Pienter;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=3de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+BertBibber;BertBibber;Bert Bibber;Bert Bibber;Bert Bibber;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=3de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Garfied;Garfied;Garfied;Garfied;Garfied;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=4de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Jon;Jon;Jon;Jon;Jon;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=4de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Nero;Nero;Nero;Nero;Nero;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=5de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Petoetje;Petoetje;Petoetje;Petoetje;Petoetje;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=5de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+Kuifje;Kuifje;Kuifje;Kuifje;Kuifje;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=6de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be
+KapiteinHaddock;KapiteinHaddock;Haddock;Haddock;Haddock;P@ssw0rd;H:;\\Win02-MS\home\%username%;\\Dc-1\netlogon\logon.bat;OU=6de leerjaar,OU=Leerlingen,OU=Mijn school,DC=intranet,DC=mijnschool,DC=be

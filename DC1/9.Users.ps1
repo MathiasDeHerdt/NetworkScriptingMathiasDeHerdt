@@ -16,6 +16,9 @@ $ADUser = Import-csv $csvFile -Delimiter ";"
 # Loop through each row containing user details in the CSV file
 foreach ($user in $ADUser)
 {
+    echo ""
+    echo "----------------------------------------------"
+    echo ""
     # Read data from each field in each row and assign the data to a variable as below
     $name = $user.Name
     $acc_name = $user.SamAccountName
@@ -28,6 +31,12 @@ foreach ($user in $ADUser)
     $script_path = $user.ScriptPath
     $path = $user.Path
 
+    echo ""
+    echo "**************************"
+    echo "Creatig $name"
+    echo "**************************"
+    echo ""
+
     # Create the users from the csv file
     New-ADUser `
     -Name $name `
@@ -35,9 +44,15 @@ foreach ($user in $ADUser)
     -GivenName $given_name `
     -Surname $sur_name `
     -DisplayName $display_name `
-    -AccountPassword $passwd `
+    -AccountPassword (convertto-securestring "$passwd" -asplaintext -force)  `
     -HomeDrive $home_drive `
     -HomeDirectory $home_directory `
     -ScriptPath $script_path `
     -Path $path
+
+    echo ""
+    echo "**************************"
+    echo "User $name has been created!"
+    echo "**************************"
+    echo ""
 }
