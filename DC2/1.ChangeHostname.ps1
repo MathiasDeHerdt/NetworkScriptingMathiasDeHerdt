@@ -1,1 +1,1 @@
-﻿Rename-Computer -NewName "DC-1" -DomainCredential administrator -Restart
+﻿Rename-Computer -NewName "Win02-DC2" -DomainCredential administrator -Restart
