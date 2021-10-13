@@ -33,12 +33,45 @@ fi
 
 # Function - Toggle to dhcp
 toggle_dhcp () {
-    echo -e "iface lo inet loopback\nauto lo\n\nauto ens192\niface ens192 inet dhcp\n#TEST\n" >> /etc/network/interfaces
+    echo "iface lo inet loopback\nauto lo\n\nauto ens192\niface ens192 inet dhcp\n" > /etc/network/interfaces
+
+    echo "-------------------"
+    echo "IP is set to DHCP"
+    echo "-------------------"
+    echo ""
+
+    CMDIP="ip a"
+    CMDRESTART="systemctl restart networking.service"
+
+    sleep 2
+    
+    eval $CMDRESTART
+    echo ""
+    eval $CMDIP
 }
 
 # Function - Toggle to static
 toggle_static () {
-    echo "static baby"
+    INTERFACE="ens192"
+    IPADDRESS="192.168.1.121"
+    IPSUBNET="255.255.255.0"
+    IPGATEWAY="192.168.1.1"
+
+    echo "iface lo inet loopback\nauto lo\n\nauto $INTERFACE\nallow-hotplug $INTERFACE\niface $INTERFACE inet static\naddress $IPADDRESS\nnetmask $IPSUBNET\ngateway $IPGATEWAY\n" > /etc/network/interfaces
+
+    echo "-------------------"
+    echo "IP is set to static"
+    echo "-------------------"
+    echo ""
+
+    CMDIP="ip a"
+    CMDRESTART="systemctl restart networking.service"
+
+    sleep 2
+
+    eval $CMDRESTART
+    echo ""
+    eval $CMDIP
 }
 
 # See if parameter is 'dhcp' or 'static'
