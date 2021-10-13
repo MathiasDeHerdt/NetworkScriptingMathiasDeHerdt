@@ -33,7 +33,7 @@ fi
 
 # Function - Toggle to dhcp
 toggle_dhcp () {
-    echo "dhcp baby"
+    echo -e "iface lo inet loopback\nauto lo\n\nauto ens192\niface ens192 inet dhcp\n#TEST\n" >> /etc/network/interfaces
 }
 
 # Function - Toggle to static
