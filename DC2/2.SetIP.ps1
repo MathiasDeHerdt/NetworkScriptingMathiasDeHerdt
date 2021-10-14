@@ -1,6 +1,6 @@
 # 
 
-$IP = "192.168.1.2"
+$IP = "192.168.1.3"
 $MaskBits = 24 # This means subnet mask = 255.255.255.0
 $Gateway = "192.168.1.1"
 $Dns = "192.168.1.1"

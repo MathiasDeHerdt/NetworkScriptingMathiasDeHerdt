@@ -3,10 +3,10 @@ $csvFile = "C:\Mathias\GitHubRepoV2\NetworkScriptingMathiasDeHerdt\intranet.mijn
 
 $TestedPath = Test-Path -Path $csvFile -PathType Leaf
 
-echo $TestedPath
+Write-Host $TestedPath
 
 if ($TestedPath -like "False"){
-    echo "Stopping the script - File not found"
+    Write-Host "Stopping the script - File not found"
     exit 1
 }
 

@@ -3,10 +3,10 @@ $csvFile = "C:\Mathias\GitHubRepoV2\NetworkScriptingMathiasDeHerdt\intranet.mijn
 
 $TestedPath = Test-Path -Path $csvFile -PathType Leaf
 
-echo $TestedPath
+Write-Host $TestedPath
 
 if ($TestedPath -like "False"){
-    echo "Stopping the script - File not found"
+    Write-Host "Stopping the script - File not found"
     exit 1
 }
 
@@ -16,9 +16,9 @@ $ADUser = Import-csv $csvFile -Delimiter ";"
 # Loop through each row containing user details in the CSV file
 foreach ($user in $ADUser)
 {
-    echo ""
-    echo "----------------------------------------------"
-    echo ""
+    Write-Host ""
+    Write-Host "----------------------------------------------"
+    Write-Host ""
     # Read data from each field in each row and assign the data to a variable as below
     $name = $user.Name
     $acc_name = $user.SamAccountName
@@ -31,11 +31,11 @@ foreach ($user in $ADUser)
     $script_path = $user.ScriptPath
     $path = $user.Path
 
-    echo ""
-    echo "**************************"
-    echo "Creatig $name"
-    echo "**************************"
-    echo ""
+    Write-Host ""
+    Write-Host "**************************"
+    Write-Host "Creatig $name"
+    Write-Host "**************************"
+    Write-Host ""
 
     # Create the users from the csv file
     New-ADUser `
@@ -50,9 +50,9 @@ foreach ($user in $ADUser)
     -ScriptPath $script_path `
     -Path $path
 
-    echo ""
-    echo "**************************"
-    echo "User $name has been created!"
-    echo "**************************"
-    echo ""
+    Write-Host ""
+    Write-Host "**************************"
+    Write-Host "User $name has been created!"
+    Write-Host "**************************"
+    Write-Host ""
 }
