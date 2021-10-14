@@ -1,3 +1,21 @@
-Add-WindowsFeature AD-Domain-Services
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
-Install-ADDSDomainController -CreateDnsDelegation:$false -DatabasePath 'C:\Windows\NTDS' -DomainName 'mikefrobbins.com' -InstallDns:$true -LogPath 'C:\Windows\NTDS' -NoGlobalCatalog:$false -SiteName 'Default-First-Site-Name' -SysvolPath 'C:\Windows\SYSVOL' -NoRebootOnCompletion:$true -Force:$true
+$Domain = "intranet.mijnschool.be"
+$Site = "QueensTown"
+$Login = "intranet\administrator"
+$NTDS_Path = "C:\Windows\NTDS"
+
+Install-ADDSDomainController `
+    -CreateDnsDelegation:$false `
+    -DatabasePath $NTDS_Path `
+    -DomainName $Domain `
+    -InstallDns:$true `
+    -LogPath $NTDS_Path `
+    -NoGlobalCatalog:$false `
+    -SiteName $Site `
+    -SysvolPath 'C:\Windows\SYSVOL' `
+    -NoRebootOnCompletion:$true `
+    -Force:$true `
+    -Credential (Get-Credential $Login) `
+
+Restart-Computer
