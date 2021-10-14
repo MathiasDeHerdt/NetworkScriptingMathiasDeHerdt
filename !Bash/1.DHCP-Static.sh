@@ -11,7 +11,6 @@ echo 'This script must be run by root' >&2
 echo ""
 echo "Stopping the script ..."
 
-
 exit 1
 
 fi
@@ -44,7 +43,7 @@ toggle_dhcp () {
     CMDRESTART="systemctl restart networking.service"
 
     sleep 2
-    
+
     eval $CMDRESTART
     echo ""
     eval $CMDIP
