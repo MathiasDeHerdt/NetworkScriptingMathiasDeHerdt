@@ -19,6 +19,7 @@ foreach ($user in $ADUser)
     Write-Host ""
     Write-Host "----------------------------------------------"
     Write-Host ""
+    
     # Read data from each field in each row and assign the data to a variable as below
     $name = $user.Name
     $acc_name = $user.SamAccountName

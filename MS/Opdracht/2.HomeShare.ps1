@@ -1,7 +1,9 @@
-$Computer_Name = "Win02-MS"
+$PC_Name = "Win02-MS"
 
-# Run script on remote machine
-Invoke-Command -ComputerName $Computer_Name {
+#Connecting to Remote PS on DC2
+$s = New-PSSession -ComputerName $PC_Name -Credential "INTRANET\Administrator" 
+
+Invoke-Command -Session $s -ScriptBlock {
 
     # Variables
     $Share_Name = "Home"

@@ -1,7 +1,9 @@
-$Computer_Name = "Win02-DC2"
+$PC_Name = "Win02-DC2"
 
-# Run script on remote machine
-Invoke-Command -ComputerName $Computer_Name {
+#Connecting to Remote PS on DC2
+$s = New-PSSession -ComputerName $PC_Name -Credential "INTRANET\Administrator" 
+
+Invoke-Command -Session $s -ScriptBlock  {
     $Domain = "intranet.mijnschool.be"
 
     Write-Host "Adding machine to domain $Domain"
