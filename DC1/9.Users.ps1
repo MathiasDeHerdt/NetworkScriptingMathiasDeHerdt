@@ -5,10 +5,14 @@ $TestedPath = Test-Path -Path $csvFile -PathType Leaf
 
 Write-Host $TestedPath
 
+# See if the csv file exists
 if ($TestedPath -like "False"){
     Write-Host "Stopping the script - File not found"
     exit 1
 }
+
+# See if logon.bat exists
+# TODO
 
 # Store the data from the CSV in the $ADUser variable. 
 $ADUser = Import-csv $csvFile -Delimiter ";"
