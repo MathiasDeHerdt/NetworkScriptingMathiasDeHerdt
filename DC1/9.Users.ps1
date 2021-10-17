@@ -11,8 +11,21 @@ if ($TestedPath -like "False"){
     exit 1
 }
 
-# See if logon.bat exists
-# TODO
+$File_Name = "logon.bat"
+$File_Path = "\\Dc-1\netlogon\logon.bat"
+
+# See if logon.bat exists, if not create it with text
+if (Test-Path $File_Path){
+    Write-Host "File exists, continuing ..."
+} 
+else {
+    # When logon.bat does not exist create one and fill it with text
+    New-Item -Path "\\Dc-1\netlogon\" -Name $File_Name
+
+    # Adding the text
+    "@echo off" | Out-File -FilePath $File_Path
+    "net use H: \\Win02-MS\Home" | Out-File -FilePath $File_Path -Append
+}
 
 # Store the data from the CSV in the $ADUser variable. 
 $ADUser = Import-csv $csvFile -Delimiter ";"

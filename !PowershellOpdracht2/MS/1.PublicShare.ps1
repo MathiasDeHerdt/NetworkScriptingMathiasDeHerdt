@@ -4,11 +4,15 @@ $PC_Name = "Win02-MS"
 $s = New-PSSession -ComputerName $PC_Name -Credential "INTRANET\Administrator" 
 
 Invoke-Command -Session $s -ScriptBlock{
+
+    # Variables
+    $Share_Name = "Public"
+    $Share_Path = "C:\$Share_Name"
     $File_Path = "\\Dc-1\netlogon\logon.bat"
 
     # See if our logon.bat exists
     if (Test-Path $File_Path){
-        Write-Host "File exists"
+        Write-Host "File exists, continuing ..."
     } 
     else {
         # when logon.bat does not exist stop the script
@@ -32,10 +36,6 @@ Invoke-Command -Session $s -ScriptBlock{
             "net use P: \\Win02-MS\Public" | Out-File -FilePath $File_Path -Append
         }   
 
-    # Variables
-    $Share_Name = "Public"
-    $Share_Path = "C:\$Share_Name"
-        
     # Make the directory we want to share
     mkdir $Share_Path
     
