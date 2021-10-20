@@ -10,6 +10,13 @@ Invoke-Command -Session $s -ScriptBlock{
     $Share_Path = "C:\$Share_Name"
     $File_Path = "\\Dc-1\netlogon\logon.bat"
 
+    # Temporarily mount \\dc-1\netlogon to a letter
+    # For some reason the MS can't find the logon.bat
+    # This is a temporary work around
+    # net use 
+    # TODO
+    
+
     # See if our logon.bat exists
     if (Test-Path $File_Path){
         Write-Host "File exists, continuing ..."
@@ -65,7 +72,7 @@ Invoke-Command -Session $s -ScriptBlock{
     $acl.SetAccessRule($AccessRule)
 
     # Add Personeel Users and give them ReadAndExecute rights
-    $AccessRule = new-object system.security.AccessControl.FileSystemAccessRule('Personeel','ReadAndExecute','Allow')
+    $AccessRule = new-object system.security.AccessControl.FileSystemAccessRule('Personeel','modify','Allow')
     $acl.AddAccessRule($AccessRule)
 
     # 
