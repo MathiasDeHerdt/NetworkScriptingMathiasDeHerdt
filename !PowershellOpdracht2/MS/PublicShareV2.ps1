@@ -1,12 +1,13 @@
-$PC_Name_MS = "Win02-MS"
 $PC_Name_DC2 = "Win02-DC2"
+$PC_Name_MS = "Win02-MS"
 
 #Connecting to Remote PS on DC2
 $S_DC2 = New-PSSession -ComputerName $PC_Name_DC2 -Credential "INTRANET\Administrator"
 
 Invoke-Command -Session $S_DC2 -ScriptBlock {
     $File_Path = "\\Dc-1\netlogon\logon.bat"
-   
+    $Text = "net use P: \\MS\Public"
+
     # See if our logon.bat exists
     if (Test-Path $File_Path){
         Write-Host "File exists, continuing ..."
@@ -18,21 +19,20 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
         exit 1
     }
 
-    # See if logon.bat contains "net use P: \\Win02-MS\Public"
-    $Text = "This will be written to the text file"
-
+    # Add text to logon.bat
     $SEL = Select-String -Path $File_Path -Pattern $Text
 
     if ($SEL -ne $null)
         {
-            Write-Host "Logon.bat contains '$Text'"
+            Write-Host "Login.bat contains '$Text'"
         }
     else
         {
-            Write-Host "Adding '$Text' to logon.bat ..."
-            "net use P: \\Win02-MS\Public" | Out-File -FilePath $File_Path -Append
-        }   
+            Write-Host "Adding '$Text' to login.bat ..."
+            Add-Content $File_Path "`nnet use P: \\Win02-MS\Public"
+        }
 }
+
 
 $S_MS = New-PSSession -ComputerName $PC_Name_MS -Credential "INTRANET\Administrator"
 

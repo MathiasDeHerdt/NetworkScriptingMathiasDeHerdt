@@ -15,7 +15,7 @@ Invoke-Command -Session $s -ScriptBlock{
     # This is a temporary work around
     # net use 
     # TODO
-    
+
 
     # See if our logon.bat exists
     if (Test-Path $File_Path){
@@ -40,7 +40,7 @@ Invoke-Command -Session $s -ScriptBlock{
     else
         {
             Write-Host "Adding '$Text' to logon.bat ..."
-            "net use P: \\Win02-MS\Public" | Out-File -FilePath $File_Path -Append
+            Write-Host "net use P: \\Win02-MS\Public" | Out-File -FilePath $File_Path -Append
         }   
 
     # Make the directory we want to share
