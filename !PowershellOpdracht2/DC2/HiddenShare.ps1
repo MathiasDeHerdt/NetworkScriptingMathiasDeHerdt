@@ -5,8 +5,8 @@ $S_DC2 = New-PSSession -ComputerName $PC_Name_DC2 -Credential "INTRANET\Administ
 
 Invoke-Command -Session $S_DC2 -ScriptBlock {
     # Variables
-    $Share_Name = "Profiles"
-    $Share_Path = "C:\$Share_Name"
+    $Share_Name = "Profiles$"
+    $Share_Path = "C:\Profiles"
 
     # Make the directory we want to share
     mkdir $Share_Path

@@ -1,35 +1,28 @@
 $PC_Name_DC2 = "Win02-DC2"
 
-# Read all the names in Secretariaat and write them in a csv file
-Get-ADGroupMember -Identity 'Secretariaat' -Recursive | select name | Export-csv -path '\\dc-1\C$\Mathias\GitHubRepoV2\NetworkScriptingMathiasDeHerdt\!PowershellOpdracht2\sec.csv' -Notypeinformation
-
-# Connecting to Remote PS on DC2
 $S_DC2 = New-PSSession -ComputerName $PC_Name_DC2 -Credential "INTRANET\Administrator"
 
 Invoke-Command -Session $S_DC2 -ScriptBlock {
-    $csv_file_path = "\\DC-1\c`$\Mathias\GitHubRepoV2\NetworkScriptingMathiasDeHerdt\!PowershellOpdracht2\sec.csv"
-    $roaming_profile_path = "\\win02-dc2\Profiles\%username%"
+    $roaming_profile_path = "\\win02-dc2\Profiles$\"
 
-    # See if we can find the csv file
-    if (Test-Path $csv_file_path){
-        Write-Host "File exists, continuing ..."
-    } 
-    else {
-        # when logon.bat does not exist stop the script
-        Write-Host "ERROR file not found"
-        Write-Host "    ----> Stopping the script"
-        exit 1
-    }
-   
-    $ADOU = Import-csv $csv_file_path -Delimiter ";"
+    # Get all members of the AD Group Secretariaat
+    $SecrUsers = Get-ADGroupMember -Identity 'Secretariaat'
 
-    # Loop through all the names in the csv file
-    foreach ($ou in $ADou) {
-        $ProfileName = $ou.name
-
-        Write-Host ""
-        Write-Host "Making a reaming profile for: $ProfileName"
-        Set-ADUser -Identity $ProfileName -ProfilePath $roaming_profile_path
-        Write-Host ""
-    }
-}
+    $SecrUsers | ForEach-Object {
+        $SUser = (Get-ADUser $_).Name
+        $UP = $roaming_profile_path + $SUser
+        if (!(Test-Path $UP)) {
+            new-item -Path $UP -ItemType Directory
+            $acl = Get-ACL -Path $UP
+            $acl.SetAccessRuleProtection($True, $False)
+            $acl.Access | %{$acl.RemoveAccessRule($_)}
+            $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("BUILTIN\Administrators","FullControl","Allow")
+            $acl.SetAccessRule($AccessRule)
+            $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("NT AUTHORITY\SYSTEM","FullControl","Allow")
+            $acl.SetAccessRule($AccessRule)
+            $AccessRule = new-object system.security.AccessControl.FileSystemAccessRule("intranet\$SUser",'modify','Allow')
+            $acl.AddAccessRule($AccessRule)
+            Set-Acl -Path $UP -AclObject $acl
+        }
+        Set-ADUser -Identity $SUser -ProfilePath $UP    }
+ }
