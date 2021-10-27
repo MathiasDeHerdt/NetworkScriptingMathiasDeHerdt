@@ -7,9 +7,12 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     # Install-WindowsFeature Web-Server -IncludeManagementTools
 
     $Path_wwwroot = "C:\inetpub\wwwroot"
+
     $path_resto = "$Path_wwwroot\resto"
+    $path_www = "$Path_wwwroot\www"
+
+    $path_www_html = "$path_www\index.html"
     $path_resto_html = "$path_resto\index.html"
-    $path_wwwroot_html = "C:\inetpub\wwwroot\index.html"
     
     # 
     # resto.intranet.mijnschool.be HTML FILE
@@ -22,7 +25,7 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     <html>
     <body style="background-color:powderblue;">
     
-    <h1>This is a heading</h1>
+    <h1>RESTO</h1>
     <p>This is a paragraph.</p>
     
     </body>
@@ -32,14 +35,15 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     # www.intranet.mijnschool.be HTML FILE
     # 
 
-    New-Item -Path $Path_wwwroot -Name "index.html" -ItemType "file"
+    New-Item -Path $Path_wwwroot -Name "www" -ItemType "directory"
+    New-Item -Path $path_www -Name "index.html" -ItemType "file"
     
-    Set-Content -Path $path_wwwroot_html -Value '
+    Set-Content -Path $path_www_html -Value '
     <!DOCTYPE html>
     <html>
     <body style="background-color:pink;">
     
-    <h1>This is a heading</h1>
+    <h1>WWW</h1>
     <p>This is a paragraph.</p>
     
     </body>
@@ -60,5 +64,64 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
 
     # # add "resto" cname record in the forward lookup zones under intranet.mijnschool.be
     Add-DnsServerResourceRecordCName -Name $CNAME_resto -HostNameAlias $FQDN_resto -ZoneName $DNS_Zone
+
+    # Create www website
+    New-WebSite -Name $CNAME_www -PhysicalPath $path_www -Force
+    $IISSite = "IIS:\Sites\$CNAME_www"
+    Set-ItemProperty $IISSite -name  Bindings -value @{protocol="http";bindingInformation="*:80:$FQDN_www"}
+    
+    Write-Host "`nCreated website $CNAME_www"
+    Write-Host "Viste the site on: $FQDN_www"
+
+    # Create resto website
+    New-WebSite -Name $CNAME_resto -PhysicalPath $path_resto -Force
+    $IISSite2 = "IIS:\Sites\$CNAME_resto"
+    Set-ItemProperty $IISSite2 -name  Bindings -value @{protocol="http";bindingInformation="*:80:$FQDN_resto"}
+    
+    Write-Host "`nCreated website $CNAME_resto"
+    Write-Host "Viste the site on: $FQDN_resto"
+
+    # Start the websites
+    Start-WebSite -Name $CNAME_resto
+    Write-Host "`nStarted website $CNAME_resto"
+
+    Start-WebSite -Name $CNAME_www
+    Write-Host "`nStarted website $CNAME_www"
+    
+    #
+    # Set permissions on www.intranet.mijnschool.be
+    #
+
+    # acl variable
+    $acl = Get-ACL -Path $path_www
+
+    # Disable inheritance
+    $acl.SetAccessRuleProtection($True, $False)
+    
+    # Remove everyone from folder
+    $acl.Access | %{$acl.RemoveAccessRule($_)}
+
+    # -------------------------------------------------
+    # *********************************************
+    # Adding groups to share with ntfs permissions
+    # *********************************************
+
+    # Add administrators with full control
+    $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("BUILTIN\Administrators","FullControl","Allow")
+    $acl.SetAccessRule($AccessRule)
+
+    # Add system with full control
+    $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("NT AUTHORITY\SYSTEM","FullControl","Allow")
+    $acl.SetAccessRule($AccessRule)
+
+    # Add Personeel Users and give them ReadAndExecute rights
+    $AccessRule = new-object system.security.AccessControl.FileSystemAccessRule('Personeel','ReadAndExecute','Allow')
+    $acl.AddAccessRule($AccessRule)
+
+    # 
+    # -------------------------------------------------
+
+    # Commit everything
+    Set-Acl -Path $path_www -AclObject $acl
 }
 
