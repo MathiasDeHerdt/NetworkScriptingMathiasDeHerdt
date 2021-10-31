@@ -20,10 +20,10 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     $Web1_Site = "$Web1_Name.$Domain"
 
 
-     # add cname record in the forward lookup zones under intranet.mijnschool.be
-     Add-DnsServerResourceRecordCName -Name $Web1_Name -HostNameAlias $Web1_Site -ZoneName $Domain
+    # add A record in the forward lookup zones under intranet.mijnschool.be
+    Add-DnsServerResourceRecordA -Name $Web1_Name -ZoneName $Domain -IPv4Address 192.168.1.3
 
-     # Create folder structure and basic index.html file
+    # Create folder structure and basic index.html file
     New-Item -Path $wwwroot_Path -Name $Web1_Name -ItemType "directory"
     Set-Content -Path $Web1_html -Value '
     <!DOCTYPE html>
@@ -35,7 +35,7 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     </html>'
 
     # Update hosts file
-    Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n127.0.0.1`t$Web1_Site" -Force
+    # Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n127.0.0.1`t$Web1_Site" -Force
 
     # Create and start the website
     New-WebSite -Name $Web1_Name -PhysicalPath $Web1_Path -Force
@@ -69,8 +69,8 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     $Web2_Site = "$Web2_Name.$Domain"
 
 
-    # add cname record in the forward lookup zones under intranet.mijnschool.be
-    Add-DnsServerResourceRecordCName -Name $Web2_Name -HostNameAlias $Web2_Site -ZoneName $Domain
+    # add A record in the forward lookup zones under intranet.mijnschool.be
+    Add-DnsServerResourceRecordA -Name $Web2_Name -ZoneName $Domain -IPv4Address 192.168.1.3
 
     # Create folder structure and basic index.html file
     New-Item -Path $wwwroot_Path -Name $Web2_Name -ItemType "directory"
@@ -84,7 +84,7 @@ Invoke-Command -Session $S_DC2 -ScriptBlock {
     </html>'
 
     # Update hosts file
-    Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "127.0.0.1`t$Web2_Site" -Force
+    # Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "127.0.0.1`t$Web2_Site" -Force
 
     # Create and start the website
     New-WebSite -Name $Web2_Name -PhysicalPath $Web2_Path -Force
