@@ -3,8 +3,6 @@
 # This does not work
 # 
 
-
-
 $PC_Name = "Win02-MS"
 
 #Connecting to Remote PS on DC2
