@@ -1,5 +1,9 @@
 #!/bin/bash
 
+printf "==============================================="
+printf "                 Alias record Script                 "
+printf "===============================================\n\n"
+
 # variables
 PKG_TO_INSTALL="apache2 bind9 bind9utils bind9-doc"
 NR_OF_PKG="4"
@@ -8,6 +12,7 @@ ADJUST_BIND9="OPTIONS='-4 -u bind'"
 # ***
 # See if script is running as root
 # ***
+
 if [ "$(id -u)" -ne 0 ]; then
 
   printf "This script must be run by root\n\n"
@@ -20,6 +25,7 @@ fi
 # ***
 # update and install packages
 # ***
+
 printf "Updating...\n\n"
 apt update # To get the latest package lists
 printf "Updating complete! Upgrading...\n\n"
@@ -31,7 +37,9 @@ printf "Installing packages complete!\n\n"
 # ***
 # adjust /etc/default/bind9
 # ***
+
 printf "Creating backup file for bind9\n\n"
+
 CMD_BAK_BIND9="cp /etc/default/bind9 /etc/default/bind9.bak"
 eval "$CMD_BAK_BIND9"
 printf "Backup complete\n\n"
@@ -42,6 +50,7 @@ printf "  - Edited the bind9 file\n\n"
 # ***
 # adjust /etc/bind/named.conf.local
 # ***
+
 printf "Creating backup file for named.conf.local\n\n"
 CMD_BAK_NAMED="cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak"
 eval "$CMD_BAK_NAMED"
@@ -64,6 +73,7 @@ printf "};" >>/etc/bind/named.conf.local
 # ***
 # create zone directory
 # ***
+
 printf "Creating /etc/bind/zones/reverse\n\n"
 CMD_MKDIR_ZONES="mkdir -p /etc/bind/zones/reverse"
 # eval "$CMD_MKDIR_ZONES"
