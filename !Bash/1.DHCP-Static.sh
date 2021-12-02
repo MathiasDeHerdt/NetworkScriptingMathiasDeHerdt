@@ -14,7 +14,7 @@ STATIC="static"
 
 if [ "$(id -u)" -ne 0 ]; then
 
-  printf 'This script must be run by root' >&2
+  printf "This script must be run by root" >&2
   printf "Stopping the script ..."
 
   exit 1

@@ -4,29 +4,32 @@ printf "==============================================="
 printf "               Expired Certificates               "
 printf "===============================================\n\n"
 
+# Variables
+CRTSFILE="/home/mdh/bashing/certs/crts.txt"
+EXPCRTSFILE="/home/mdh/bashing/certs/expcrts.txt"
+
 # ***
 # See if script is running as root
 # ***
 
 if [ "$(id -u)" -ne 0 ]; then
 
-  printf 'This script must be run by root' >&2
+  printf "This script must be run by root" >&2
   printf "Stopping the script ..."
 
   exit 1
 
 fi
 
+>$EXPCRTSFILE
+
 # ***
-# add .crt file names to txt file
+# add .crt filenames to txt file
 # ***
 
-CERT_PATH="/home/mdh/bashing/certs/crts.txt"
+find / -type f -name '*.crt' >>$CRTSFILE
 
-find / -type f -name '*.crt' >>$CERT_PATH
-
-File=$CERT_PATH
-Lines=$(cat $File)
+Lines=$(cat $CRTSFILE)
 
 for Line in $Lines; do
   DATE=$(openssl x509 -enddate -noout -in $Line)
@@ -35,23 +38,20 @@ for Line in $Lines; do
   MONTH=${DATE:9:-21}
   DAY=${DATE:13:-18}
 
-  NEW_DATE="$DAY-${MONTH^^}-$YEAR"
+  NEWDATE="$DAY-${MONTH^^}-$YEAR"
 
-  printf "$NEW_DATE"
+  EXPIREDATE=$(date -d "$NEWDATE" +"%s")
+  DATEPLUSFOURTEEN=$(date -d "$dt +14 day" +"%s")
+  CURRENTDATE=$(date +%s)
 
-  EXPIRE_DATE=$(date -d "$NEW_DATE" +"%s")
-  DATE_PLUS_FOURTEEN=$(date -d "$dt +14 day" +"%s")
-  CURRENT_DATE=$(date +%s)
-
-  printf "$EXPIRE_DATE"
-  printf "$DATE_PLUS_FOURTEEN"
-
-  if [ "$DATE_PLUS_FOURTEEN" -gt "$EXPIRE_DATE" ] && [ "$EXPIRE_DATE" -ge "$CURRENT_DATE" ]; then
-    printf "$Line"
+  if [ "$DATEPLUSFOURTEEN" -gt "$EXPIREDATE" ] && [ "$EXPIREDATE" -ge "$CURRENTDATE" ]; then
+    echo "$Line" >>$EXPCRTSFILE
+    echo "$Line"
   fi
 done
 
 # ***
-# Empty the file
+# CRTSFILE verwijderen
 # ***
->$File
+
+rm -d $CRTSFILE
