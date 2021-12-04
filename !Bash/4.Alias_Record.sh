@@ -80,7 +80,7 @@
   printf "Creating file nmctinternal.be in /etc/bind/zones/\n\n"
   touch ${NMCTINTERNAL_BE}
 
-  echo "Adjusting nmctinternal.be"
+  printf "Adjusting nmctinternal.be"
   echo ";" >>${NMCTINTERNAL_BE}
   echo "; BIND data for nmctinternal.be" >>${NMCTINTERNAL_BE}
   echo ";" >>${NMCTINTERNAL_BE}
@@ -99,7 +99,7 @@
   printf "Creating file 1.168.192.in-addr.arpa in /etc/bind/zones/reverse/\n\n"
   touch ${REVERSE_ARPA}
 
-  echo "Adjusting reverse lookup zone\n\n"
+  printf "Adjusting reverse lookup zone\n\n"
   echo ";" >>${REVERSE_ARPA}
   echo "; BIND reverse file for 1.168.192.in-addr.arpa" >>${REVERSE_ARPA}
   echo ";" >>${REVERSE_ARPA}
