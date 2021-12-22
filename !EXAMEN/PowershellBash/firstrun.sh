@@ -37,7 +37,18 @@ XKBVARIANT=""
 XKBOPTIONS=""
 KBEOF
 dpkg-reconfigure -f noninteractive keyboard-configuration
-# # MCT - Computer Networks section # # # DHCP fallback profile profile static_eth0 static ip_address=192.168.168.168/24 # The primary network interface interface eth0 arping 192.168.99.99 fallback static_eth0 DHCPCDEOF
+# 
+# MCT - Computer Networks section # 
+# 
+# DHCP fallback profile 
+profile static_eth0 
+static ip_address=192.168.168.168/24 
+
+# The primary network interface 
+interface eth0 
+arping 192.168.99.99 
+fallback static_eth0 
+DHCPCDEOF
 rm -f /boot/firstrun.sh
 sed -i 's| systemd.run.*||g' /boot/cmdline.txt
 exit 0

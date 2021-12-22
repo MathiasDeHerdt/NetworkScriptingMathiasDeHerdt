@@ -8,19 +8,17 @@ printf "====================================================================\n\n
 # Variables
 # ***
 FILENAME="firstrun.sh"
-JUMPTOLINE="firstrun.sh"
-
 
 # ***
 # See if script is executed with sudo rights (or root)
 # ***
-# if [ "$(id -u)" -ne 0 ]; then
+if [ "$(id -u)" -ne 0 ]; then
 
-#   printf "Script must be executed with sudo!\n\n"
+  printf "Script must be executed with sudo!\n\n"
 
-#   exit 1
+  exit 1
 
-# fi
+fi
 
 # ***
 # See firstrun.sh is in the same directory as this script
@@ -47,8 +45,10 @@ printf "Backup complete\n\n"
 
 # ***
 # Edit the firstrun.sh file
+#   Documentation:
+#       https://stackoverflow.com/questions/32007152/insert-multiple-lines-of-text-before-specific-line-using-bash
 # ***
-sed -i "/${JUMPTOLINE}/ i # \
+sed -i '/firstrun.sh/ i # \
 # MCT - Computer Networks section # \
 # \
 # DHCP fallback profile \
@@ -59,4 +59,4 @@ static ip_address=192.168.168.168/24 \
 interface eth0 \
 arping 192.168.99.99 \
 fallback static_eth0 \
-DHCPCDEOF" $FILENAME
+DHCPCDEOF' $FILENAME
