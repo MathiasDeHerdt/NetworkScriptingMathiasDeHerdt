@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "====================================================================\n"
-printf "This script will edit the firstrun.sh on the Raspberry Pi with Bash\n"
+printf "This script will edit the firstrun.sh for the Raspberry Pi with Bash\n"
 printf "====================================================================\n\n"
 
 # ***

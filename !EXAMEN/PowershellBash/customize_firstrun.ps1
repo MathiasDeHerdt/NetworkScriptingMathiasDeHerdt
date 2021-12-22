@@ -6,7 +6,7 @@ Write-Output "==================================================================
 # Variables
 # ***
 $File_Name = "firstrun.sh"
-$file_Path = Read-Host "Enter the path to the firstun.sh file"
+$file_Path = Read-Host "Enter the full path to the firstun.sh file (example: C:\Temp\)"
 $full_Path = "$($file_Path)$($File_Name)"
 
 # ***
@@ -26,3 +26,7 @@ else {
 # ***
 Copy-Item $full_Path -Destination "C:\Temp\BackupScript\"
 Write-Output "Backup complete, file location is: C:\Temp\BackupScript\"
+
+# ***
+# Edit the firstrun.sh file
+# ***
