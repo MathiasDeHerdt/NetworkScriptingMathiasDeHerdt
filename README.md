@@ -1,9 +1,5 @@
-# NetworkScriptingSchool
-
-! Examen !
-
-voor het examen van Kerst staat alles onder de map "!EXAMEN"
-
+# Examen informatie
+voor het examen van Kerst staan al mijn files (Terraform, Ansible, Bash en Powershell) onder de map "!EXAMEN"
 
 # Examen: Terraform en Ansible
 Hoe moet ik de scripts runnen?
