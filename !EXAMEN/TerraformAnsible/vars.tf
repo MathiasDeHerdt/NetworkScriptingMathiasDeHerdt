@@ -21,7 +21,7 @@ variable "connection_user" {
 
 # Templates for VM --------------------------------------------------------------------------------
 variable "vm_template-ubuntu" {
-  default = "ubuntu-template"
+  default = "ubuntu-template-examen"
 }
 
 variable "vm_template-centos" {
@@ -34,6 +34,13 @@ variable "vm_template-windows" {
 
 
 # VM Hostname --------------------------------------------------------------------------------------
+variable "vm_hostname_win" {
+  default = "mathias"
+}
+variable "vm_hostname_ubu" {
+  default = "mathias-ubu"
+}
+
 variable "vm_hostname" {
   default = "webserver"
 }
@@ -59,16 +66,13 @@ variable "vm_network_interface" {
   default = "192.168.50.100"
 }
 
-variable "vm_network_interface_balancer" {
-  default = "192.168.50.20"
-}
-
 variable "gateway" {
   default = "192.168.50.1"
 }
 
 variable "dns_servers" {
-  default = ["172.20.0.2", "172.20.0.3"]
+  # default = ["172.20.0.2", "172.20.0.3"]
+  default = ["192.168.40.16"]
 }
 
 variable "connection_type_ssh" {

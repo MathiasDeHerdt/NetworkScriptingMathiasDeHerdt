@@ -1,116 +1,76 @@
 # -----------------------------------------------------------------------------------
+#                     Windows OS
+# -----------------------------------------------------------------------------------
+
+# Nothing to configure
+
+# -----------------------------------------------------------------------------------
 #                           Ubuntu OS
 # -----------------------------------------------------------------------------------
 
-- name: Preparing a webserver with ubuntu OS
-  hosts: webservers_ubuntu
+- name: Preparing a VM with ubuntu OS
+  hosts: ubuntu_vm
   tasks:
-    - name: Upgrade all packages
-      apt:
-        upgrade: dist
-        force_apt_get: yes
-      become: yes
+#    - name: Upgrade all packages
+#      apt:
+#        upgrade: dist
+#        force_apt_get: yes
+#      become: yes
+#
+#    - name: Create a Directory /home/student/workshop
+#      file:
+#        path: /home/student/workshop
+#        state: directory
+#        mode: 0755
+#        owner: student
+#        group: student
+#      become: yes
+#
+#    - name: Get zip from http://192.168.40.15/datasets.zip
+#      get_url:
+#        url: http://192.168.40.15/datasets.zip
+#        dest: /tmp
+#        mode: 0755
+#        # checksum: sha512:5bdea5414713c9ba39e226f062701fa14998b1a798c9750f956a0f59b5edabb8d83af9ec9f81cf9f47fa92c21b560c9b2be1b543d0bd8f1b49579b69101d3a8f
+#        group: student
+#        owner: student
+#      become: yes
 
-    - name: Install Nginx
+    - name: Install zip
       apt:
-        name: nginx
+        name: zip
         state: present
         update_cache: True
       become: yes
 
-    - name: "Creating web page"
-      copy:
-        # content: "Hi this is {{ ansible_facts['hostname'] }} of roles"
-        content: "Hi bonkers, this is Ubuntu-0 webserver at your service"
-        dest: "/var/www/html/index.nginx-debian.html"
-      become: yes
+    - name: Unarchive a file that is already on the remote machine
+      ansible.builtin.unarchive:
+        src: /tmp/datasets.zip
+        dest: /home/student/workshop
+        remote_src: yes
 
-    - name: Reload nginx.service
-      ansible.builtin.systemd:
-        name: nginx.service
-        state: reloaded
-      become: yes
 
-# -----------------------------------------------------------------------------------
-#                     CENTOS
-# -----------------------------------------------------------------------------------
-- name: Preparing a webserver with for CentOS
-  hosts: webservers_centos
-  tasks:
-    - name: Upgrade all packages
-      yum:
-        name: '*'
-        state: latest
-        exclude: kernel*,foo*
-      become: yes
 
-    - name: Install Nginx
-      yum:
-        name: nginx
-        state: present
-      become: yes
 
-    - name: "Creating web page"
-      copy:
-        # content: "Hi this is {{ ansible_facts['hostname'] }} of roles"
-        content: "Hi bonkers, this is CentOS-0 webserver at your service"
-        dest: "/usr/share/nginx/html/index.html"
-      become: yes
+    # - name: Unzip datasets.zip
+      #      copy:
+      #        # content: "Hi this is {{ ansible_facts['hostname'] }} of roles"
+      #        content: "Hi bonkers, this is Ubuntu-0 webserver at your service"
+      #        dest: "/var/www/html/index.nginx-debian.html"
+      # become: yes
 
-    - name: Reload nginx.service
-      ansible.builtin.systemd:
-        name: nginx.service
-        state: reloaded
-      become: yes
+    # - name: Start the docker container
+      #      ansible.builtin.systemd:
+      #        name: nginx.service
+      #        state: reloaded
+    #  become: yes
 
-    - name: FirewallD rules
-      firewalld:
-        permanent: yes
-        immediate: yes
-        service: "{{ item }}"
-        state: enabled
-      with_items:
-        - http
-        - https
-      become: yes
 
-# -----------------------------------------------------------------------------------
-#                           Load Balancer
-# -----------------------------------------------------------------------------------
 
-- name: Preparing the load balancer
-  hosts: loadbalancer_ubuntu
-  tasks:
-    - name: Upgrade all packages
-      apt:
-        upgrade: dist
-        force_apt_get: yes
-      become: yes
+# ==========================================================
+# Sources used:
+#   for create dir, get zip and install zip:
+#     - https://www.middlewareinventory.com/blog/ansible-get_url-examples-how-to-download-file-from-url/
+#   for unarchive file:
+#     - https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
 
-    - name: Install Nginx
-      apt:
-        name: nginx
-        state: present
-        update_cache: True
-      become: yes
-
-    - name: Reload nginx.service
-      ansible.builtin.systemd:
-        name: nginx.service
-        state: reloaded
-      become: yes
-
-    - name: Copy file with owner and permissions
-      ansible.builtin.copy:
-        src: loadbalancer.conf
-        dest: /etc/nginx/nginx.conf
-        owner: student
-        group: student
-        mode: '0644'
-      become: yes
-
-    - name: Reload nginx.service
-      ansible.builtin.systemd:
-        name: nginx.service
-        state: reloaded
-      become: yes
