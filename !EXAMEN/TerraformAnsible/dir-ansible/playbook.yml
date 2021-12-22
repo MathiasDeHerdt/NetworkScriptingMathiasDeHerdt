@@ -1,0 +1,116 @@
+# -----------------------------------------------------------------------------------
+#                           Ubuntu OS
+# -----------------------------------------------------------------------------------
+
+- name: Preparing a webserver with ubuntu OS
+  hosts: webservers_ubuntu
+  tasks:
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        force_apt_get: yes
+      become: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: True
+      become: yes
+
+    - name: "Creating web page"
+      copy:
+        # content: "Hi this is {{ ansible_facts['hostname'] }} of roles"
+        content: "Hi bonkers, this is Ubuntu-0 webserver at your service"
+        dest: "/var/www/html/index.nginx-debian.html"
+      become: yes
+
+    - name: Reload nginx.service
+      ansible.builtin.systemd:
+        name: nginx.service
+        state: reloaded
+      become: yes
+
+# -----------------------------------------------------------------------------------
+#                     CENTOS
+# -----------------------------------------------------------------------------------
+- name: Preparing a webserver with for CentOS
+  hosts: webservers_centos
+  tasks:
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+        exclude: kernel*,foo*
+      become: yes
+
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: present
+      become: yes
+
+    - name: "Creating web page"
+      copy:
+        # content: "Hi this is {{ ansible_facts['hostname'] }} of roles"
+        content: "Hi bonkers, this is CentOS-0 webserver at your service"
+        dest: "/usr/share/nginx/html/index.html"
+      become: yes
+
+    - name: Reload nginx.service
+      ansible.builtin.systemd:
+        name: nginx.service
+        state: reloaded
+      become: yes
+
+    - name: FirewallD rules
+      firewalld:
+        permanent: yes
+        immediate: yes
+        service: "{{ item }}"
+        state: enabled
+      with_items:
+        - http
+        - https
+      become: yes
+
+# -----------------------------------------------------------------------------------
+#                           Load Balancer
+# -----------------------------------------------------------------------------------
+
+- name: Preparing the load balancer
+  hosts: loadbalancer_ubuntu
+  tasks:
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        force_apt_get: yes
+      become: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: True
+      become: yes
+
+    - name: Reload nginx.service
+      ansible.builtin.systemd:
+        name: nginx.service
+        state: reloaded
+      become: yes
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: loadbalancer.conf
+        dest: /etc/nginx/nginx.conf
+        owner: student
+        group: student
+        mode: '0644'
+      become: yes
+
+    - name: Reload nginx.service
+      ansible.builtin.systemd:
+        name: nginx.service
+        state: reloaded
+      become: yes
