@@ -11,30 +11,36 @@
 - name: Preparing a VM with ubuntu OS
   hosts: ubuntu_vm
   tasks:
-#    - name: Upgrade all packages
-#      apt:
-#        upgrade: dist
-#        force_apt_get: yes
-#      become: yes
-#
-#    - name: Create a Directory /home/student/workshop
-#      file:
-#        path: /home/student/workshop
-#        state: directory
-#        mode: 0755
-#        owner: student
-#        group: student
-#      become: yes
-#
-#    - name: Get zip from http://192.168.40.15/datasets.zip
-#      get_url:
-#        url: http://192.168.40.15/datasets.zip
-#        dest: /tmp
-#        mode: 0755
-#        # checksum: sha512:5bdea5414713c9ba39e226f062701fa14998b1a798c9750f956a0f59b5edabb8d83af9ec9f81cf9f47fa92c21b560c9b2be1b543d0bd8f1b49579b69101d3a8f
-#        group: student
-#        owner: student
-#      become: yes
+
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+      become: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        force_apt_get: yes
+      become: yes
+
+    - name: Create a Directory /home/student/workshop
+      file:
+        path: /home/student/workshop
+        state: directory
+        mode: 0755
+        owner: student
+        group: student
+      become: yes
+
+    - name: Get zip from http://192.168.40.15/datasets.zip
+      get_url:
+        url: http://192.168.40.15/datasets.zip
+        dest: /tmp
+        mode: 0755
+        group: student
+        owner: student
+      become: yes
 
     - name: Install zip
       apt:
@@ -48,24 +54,6 @@
         src: /tmp/datasets.zip
         dest: /home/student/workshop
         remote_src: yes
-
-
-
-
-    # - name: Unzip datasets.zip
-      #      copy:
-      #        # content: "Hi this is {{ ansible_facts['hostname'] }} of roles"
-      #        content: "Hi bonkers, this is Ubuntu-0 webserver at your service"
-      #        dest: "/var/www/html/index.nginx-debian.html"
-      # become: yes
-
-    # - name: Start the docker container
-      #      ansible.builtin.systemd:
-      #        name: nginx.service
-      #        state: reloaded
-    #  become: yes
-
-
 
 # ==========================================================
 # Sources used:

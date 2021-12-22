@@ -41,6 +41,7 @@ data "vsphere_virtual_machine" "webserver-template-windows" {
 # ----------------
 # Windows VM
 # ----------------
+
 resource "vsphere_virtual_machine" "vm-windows" {
   count            = 1
   name             = "mathias-win"

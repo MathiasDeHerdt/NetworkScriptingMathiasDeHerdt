@@ -72,7 +72,7 @@ variable "gateway" {
 
 variable "dns_servers" {
   # default = ["172.20.0.2", "172.20.0.3"]
-  default = ["192.168.40.16"]
+  default = ["192.168.40.1"]
 }
 
 variable "connection_type_ssh" {
