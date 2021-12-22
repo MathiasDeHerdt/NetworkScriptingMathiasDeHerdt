@@ -8,18 +8,19 @@ printf "====================================================================\n\n
 # Variables
 # ***
 FILENAME="firstrun.sh"
+JUMPTOLINE="firstrun.sh"
 
 
 # ***
 # See if script is executed with sudo rights (or root)
 # ***
-if [ "$(id -u)" -ne 0 ]; then
+# if [ "$(id -u)" -ne 0 ]; then
 
-  printf "Script must be executed with sudo!\n\n"
+#   printf "Script must be executed with sudo!\n\n"
 
-  exit 1
+#   exit 1
 
-fi
+# fi
 
 # ***
 # See firstrun.sh is in the same directory as this script
@@ -40,30 +41,22 @@ fi
 # Create backup of firstrun.sh
 # ***
 printf "Creating backup file for firstrun.sh\n\n"
-CMD_BAK_BIND9="cp firstrun.sh firstrun.sh.bak"
-eval "$CMD_BAK_BIND9"
+CMD_BAKUP="cp firstrun.sh firstrun.sh.bak"
+eval "$CMD_BAKUP"
 printf "Backup complete\n\n"
 
-
+# ***
 # Edit the firstrun.sh file
-
-# Find the line before rm -f /boot/firstrun.sh
-
-# Add the following lines to firstrun.sh
-
-# -----------------------------------------------------
-# #
-# # MCT - Computer Networks section #
-# #
-
-# # DHCP fallback profile 
-# profile static_eth0 
-# static ip_address=192.168.168.168/24
-
-# # The primary network interface 
-# interface eth0 
-# arping 192.168.99.99 
-# fallback static_eth0 
-# DHCPCDEOF
-
-# -----------------------------------------------------
+# ***
+sed -i "/${JUMPTOLINE}/ i # \
+# MCT - Computer Networks section # \
+# \
+# DHCP fallback profile \
+profile static_eth0 \
+static ip_address=192.168.168.168/24 \
+\
+# The primary network interface \
+interface eth0 \
+arping 192.168.99.99 \
+fallback static_eth0 \
+DHCPCDEOF" $FILENAME
