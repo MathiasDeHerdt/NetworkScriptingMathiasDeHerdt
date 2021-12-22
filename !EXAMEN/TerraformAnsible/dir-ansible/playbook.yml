@@ -55,10 +55,20 @@
         dest: /home/student/workshop
         remote_src: yes
 
+#    - name: Create a data container
+#      docker_container:
+#        name: mydata
+#        image: database_img
+#        volumes:
+#          - /data
+#      become: yes
+
 # ==========================================================
 # Sources used:
 #   for create dir, get zip and install zip:
 #     - https://www.middlewareinventory.com/blog/ansible-get_url-examples-how-to-download-file-from-url/
 #   for unarchive file:
 #     - https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
+#   for docker:
+#     - https://docs.ansible.com/ansible/2.5/modules/docker_container_module.html
 
