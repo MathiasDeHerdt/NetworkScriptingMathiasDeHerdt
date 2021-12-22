@@ -5,7 +5,7 @@
 voor het examen van Kerst staat alles onder de map "!EXAMEN"
 
 
-# Terraform and Ansible
+# Examen: Terraform en Ansible
 Hoe moet ik de scripts runnen?
 1. in WSL ga naar de folder waar je terraform scripts staan en voer volgende commando's uit:
 
@@ -18,6 +18,9 @@ Hoe moet ik de scripts runnen?
 
 - ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass 
 
+# Examen: Bash en Powershell
+TODO
 
+# Labo's semester 1: Powershell
 Opdracht 1 staat allemaal onder DC1, DC2, MS en de csv files staan in intranet.mijnschool.be
 Opdracht 2 staat onder !PowershellOpdracht2
