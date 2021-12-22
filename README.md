@@ -6,15 +6,15 @@ Hoe moet ik de scripts runnen?
 - **Terraform**
 1. in WSL ga naar de folder waar je terraform scripts staan en voer volgende commando's uit:
 
-- terraform init
-- terraform validate
-- terraform plan -out=Deploy-Win-And-Ubu-VM
-- terraform apply Deploy-Win-And-Ubu-VM
+terraform init
+terraform validate
+terraform plan -out=Deploy-Win-And-Ubu-VM
+terraform apply Deploy-Win-And-Ubu-VM
 
 - **Ansible**
 2. Voor Ansible ga je nu naar de folder waar de Ansible code staat (dir-ansible) en voer volgend commando uit:
 
-- ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass
+ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass
 
 vault password: mdh
 
