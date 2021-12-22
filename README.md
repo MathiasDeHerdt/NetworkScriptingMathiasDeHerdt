@@ -1,7 +1,9 @@
 # Examen informatie
 voor het examen van Kerst staan al mijn files (Terraform, Ansible, Bash en Powershell) onder de map "!EXAMEN"
 
-Hoe moet ik de scripts runnen? Dit staat beetje lager uitgeschreven
+Hoe moet ik de scripts runnen? Dit staat beetje lager uitgeschreven :)
+
+ps fijne feestdagen
 
 # Examen: Terraform en Ansible
 
