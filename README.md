@@ -19,7 +19,15 @@ Hoe moet ik de scripts runnen?
 - ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass 
 
 # Examen: Bash en Powershell
-TODO
+Powershell:
+.\customize_firstrun.ps1
+
+
+Bash:
+bash (or sh) customize_firstrun.sh
+
+
+
 
 # Labo's semester 1: Powershell
 Opdracht 1 staat allemaal onder DC1, DC2, MS en de csv files staan in intranet.mijnschool.be
