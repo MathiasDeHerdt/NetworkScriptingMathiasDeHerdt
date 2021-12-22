@@ -12,7 +12,9 @@ Hoe moet ik de scripts runnen?
 
 2. Voor Ansible ga je nu naar de folder waar de Ansible code staat (dir-ansible) en voer volgend commando uit:
 
-- ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass 
+- ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass
+
+vault password: mdh
 
 # Examen: Bash en Powershell
 Powershell:
